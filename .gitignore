@@ -22,3 +22,20 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+# 로그 파일
+*.log
+
+# Eclipse IDE files
+.project
+.classpath
+.settings/
+
+# 운영체제 파일 (macOS)
+.DS_Store
+
+# Maven build output
+target/
+
+# 기타 IDE 파일 (IntelliJ IDEA 등)
+.idea/
