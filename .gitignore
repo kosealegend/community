@@ -39,3 +39,4 @@ target/
 
 # 기타 IDE 파일 (IntelliJ IDEA 등)
 .idea/
+/.metadata/
