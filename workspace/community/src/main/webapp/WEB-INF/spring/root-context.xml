@@ -27,4 +27,7 @@
 		<constructor-arg index="0" ref="sqlSessionFactory"/>
 		<constructor-arg index="1" value="SIMPLE"/>
 	</bean>
+	
+	<mybatis-spring:scan base-package="com.my.humor.mapper"/>
+	
 </beans>

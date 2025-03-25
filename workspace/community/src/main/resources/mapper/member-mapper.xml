@@ -3,6 +3,6 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.my.humor.dao.Test">
+<mapper namespace="com.my.humor.dao.CategoryDAO">
     <!-- 아무 SQL이 없어도 실행은 됨 -->
 </mapper>
