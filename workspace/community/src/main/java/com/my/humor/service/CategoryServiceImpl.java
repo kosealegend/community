@@ -16,7 +16,6 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Override
 	public List<CategoryVO> getCategory() {
-		System.out.println("무슨 문제냐");
 		return categoryMapper.getCategory();
 	}
 

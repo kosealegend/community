@@ -14,4 +14,5 @@ import lombok.ToString;
 public class CategoryVO {
 	private int categoryId;
 	private String categoryName;
+	private String categoryDescribe;
 }
