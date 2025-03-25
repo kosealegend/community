@@ -8,9 +8,10 @@
 <div class="d-flex">
 <div class="w-10">
 <div class="mt-1"></div>
-<jsp:include page="include/lnb.jsp"/>
+<jsp:include page="../include/lnb.jsp"/>
 </div>
 <div class="w-90">
+<h1>댓글 신고 관리</h1>
 </div>
 </div>
 </div>

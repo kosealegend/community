@@ -16,4 +16,20 @@ public class AdminController {
 	public void GetAdmin() throws Exception{
 		logger.info("관리자 진입");
 	}
+	
+	@GetMapping("/setting/userMan")
+	public void GetUserSet() throws Exception{
+		logger.info("유저 관리 진입");
+	}
+	
+	@GetMapping("/setting/reportMan")
+	public void GetReportSet() throws Exception{
+		logger.info("신고 관리 진입");
+	}
+	
+	@GetMapping("/setting/reportReMan")
+	public void GetReportReSet() throws Exception{
+		logger.info("댓글 신고 관리 진입");
+	}
+	
 }
