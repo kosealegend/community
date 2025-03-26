@@ -11,7 +11,7 @@
 <jsp:include page="../include/lnb.jsp"/>
 </div>
 <div class="w-90">
-	<h2 class="mt-5 mb-3 text-white fw-bold">글 신고 관리</h2>
+	<h2 class="mt-5 mb-3 fw-bold">글 신고 관리</h2>
 	<table class="table table-dark table-hover">
 		<colgroup>
 			<col width="10%"/>
