@@ -8,14 +8,27 @@
 <div class="mt-3">&nbsp;</div>
 <ul class="list-group mt-5">
 
-<li class="list-group-item">
-	<a href="${contextPath}/admin/setting/userMan" class="a-link text-decoration-none">
+<li class="">
+	<a href="${contextPath}/admin/setting/userMan" class="btn btn-outline-primary">
 	유저관리
 	</a>
 </li>
-<li class="list-group-item">
+
+<div class="btn-group dropend">
+  <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    신고관리
+  </button>
+  <ul class="dropdown-menu">
+    <li class="list-group-item">
 	<a href="${contextPath}/admin/setting/reportMan" class="a-link text-decoration-none">
-	신고관리
+	글
 	</a>
-</li>
+	</li>
+	<li class="list-group-item">
+	<a href="${contextPath}/admin/setting/reportReMan" class="a-link text-decoration-none">
+	댓글
+	</a>
+	</li>
+  </ul>
+</div>
 </ul>
