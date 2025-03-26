@@ -14,10 +14,10 @@
 	<h2 class="mt-5 mb-3 fw-bold">Review Report Manegement</h2>
 	<table class="table table-dark table-hover text-center">
 		<colgroup>
+			<col width="15%"/>
 			<col width="20%"/>
 			<col width="20%"/>
-			<col width="20%"/>
-			<col width="10%"/>
+			<col width="15%"/>
 			<col width="25%"/>
 		</colgroup>
 		<thead>

@@ -27,7 +27,25 @@
 			<th>아이디</th><th>닉네임</th><th>이메일</th><th>성별</th><th>연락처</th><th>가입일</th><th>상태</th>
 			</tr>
 		</thead>
-	</table>
+		<tbody>
+	<c:forEach items="${list}" var="list">
+	<tr>
+	<td class="text-center">${list.gdsNum}</td>
+	<td><img src="${list.gdsThumbImg}" class="thumb img-thumbnail"/></td>
+	<td>
+	<a href="/admin/goods/view?n=${list.gdsNum}" class="text-white">
+	<!-- 제목을 클릭할때 맞는 순번 상품순서로 view page-->
+	${list.gdsName}<!-- 제목 -->
+	</a>
+	</td>
+	<td class="text-center">${list.cateCode}</td>
+	<td class="text-center">${list.gdsPrice}</td>
+	<td class="text-center">${list.gdsStock}</td>
+	<td class="text-center">${list.gdsDate}</td>
+	</tr>
+	</c:forEach>
+	</tbody>
+</table>
 </div>
 </div>
 </div>
