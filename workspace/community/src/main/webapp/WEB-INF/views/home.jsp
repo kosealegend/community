@@ -11,6 +11,7 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="${contextPath}/resources/css/board.css" />
     <style>
       .card-header-custom {
         background-color: #000 !important;
@@ -25,7 +26,7 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     </style>
   </head>
   <body>
-    <div class="container mt-4">
+    <div class="board-container mt-4">
       <div class="row">
         <!-- 카테고리 반복 -->
         <c:forEach var="category" items="${categoryList}">
