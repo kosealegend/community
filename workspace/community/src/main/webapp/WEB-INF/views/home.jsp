@@ -25,6 +25,7 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     </style>
   </head>
   <body>
+ 
     <div class="container mt-4">
       <div class="row">
         <!-- 카테고리 반복 -->
@@ -50,5 +51,7 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
     <!-- 부트스트랩 JS (선택) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- footer -->
+    
   </body>
 </html>

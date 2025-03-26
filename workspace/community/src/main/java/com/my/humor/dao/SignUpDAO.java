@@ -1,5 +1,6 @@
 package com.my.humor.dao;
 
-public interface CategoryDAO {
+public interface SignUpDAO {
+
 	
 }
