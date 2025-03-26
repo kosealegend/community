@@ -9,6 +9,7 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="${contextPath}/resources/css/board.css" />
     <style>
       .post-list-area {
         min-height: 800px; /* 글 20개 기준 여유있게 */
@@ -16,83 +17,87 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     </style>
   </head>
   <body>
-    <div class="container mt-4">
+    <section class="board-container mt-4">
+      <!-- 제목 / Header -->
       <div class="d-flex justify-content-between align-items-center mb-3">
-        <h3 class="mb-0">${categoryName} 게시판</h3>
-
-        <!-- ✅ 로그인한 사용자만 글쓰기 버튼 표시 -->
-        <c:if test="${not empty sessionScope.loginUser}">
-          <a
-            href="${contextPath}/board/write?category=${categoryId}"
-            class="btn btn-dark"
-            >글쓰기</a
-          >
-        </c:if>
+        <h2>게시판 제목</h2>
+        <a href="${contextPath}/board/write?categoryName=${categoryName}" class="btn btn-primary">글쓰기</a>
       </div>
 
-      <!-- ✅ 게시글 목록 테이블 -->
-      <table class="table table-hover table-bordered post-list-area">
-        <thead class="table-light">
-          <tr>
-            <th style="width: 10%">번호</th>
-            <th>제목</th>
-            <th style="width: 15%">작성자</th>
-            <th style="width: 15%">작성일</th>
-            <th style="width: 10%">조회수</th>
-          </tr>
-        </thead>
-        <tbody>
-          <c:forEach var="post" items="${postList}">
+      <!-- 테이블 or 리스트 -->
+      <div class="table-responsive post-list-area">
+        <table class="table table-striped">
+          <thead>
             <tr>
-              <td>${post.id}</td>
-              <td>
-                <a
-                  href="${contextPath}/board/detail?id=${post.id}"
-                  class="text-decoration-none"
-                >
-                  ${post.title}
-                </a>
-              </td>
-              <td>${post.writer}</td>
-              <td>${post.createdDate}</td>
-              <td>${post.viewCount}</td>
+              <th>번호</th>
+              <th>제목</th>
+              <th>작성자</th>
+              <th>작성일</th>
+              <th>조회수</th>
+              <th>추천</th>
             </tr>
-          </c:forEach>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <!-- 게시글 목록 반복 영역 -->
+            <tr>
+              <td>1</td>
+              <td><a href="#">예시 게시글 제목</a></td>
+              <td>홍길동</td>
+              <td>2025-03-26</td>
+              <td>123</td>
+              <td>1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <!-- ✅ 페이징 처리 -->
-      <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-          <c:forEach begin="1" end="${totalPages}" var="i">
-            <li class="page-item ${i == currentPage ? 'active' : ''}">
-              <a
-                class="page-link"
-                href="${contextPath}/board/${categoryName}?page=${i}"
-              >
-                ${i}
-              </a>
-            </li>
-          </c:forEach>
-        </ul>
-      </nav>
-
-      <!-- ✅ 검색창 -->
-      <form
-        class="d-flex justify-content-center mb-4"
-        method="get"
-        action="${contextPath}/board/${categoryName}"
+      <!-- 목록 버튼 + 페이징 한 줄 정렬 -->
+      <div
+        class="d-flex justify-content-between align-items-center flex-wrap mt-4"
       >
-        <input type="hidden" name="category" value="${categoryId}" />
-        <input
-          class="form-control w-25 me-2"
-          type="search"
-          name="keyword"
-          placeholder="검색어 입력"
-        />
-        <button class="btn btn-outline-secondary" type="submit">검색</button>
-      </form>
-    </div>
+        <!-- 왼쪽 목록 버튼 -->
+        <div>
+          <button class="btn btn-secondary">목록</button>
+        </div>
+
+        <!-- 가운데 정렬된 페이징 -->
+        <div class="mx-auto">
+          <nav class="paginate">
+            <ul class="pagination mb-0">
+              <li class="page-item disabled">
+                <a class="page-link" href="#">이전</a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">4</a></li>
+              <li class="page-item"><a class="page-link" href="#">5</a></li>
+              <li class="page-item"><a class="page-link" href="#">다음</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <!-- 검색 폼 -->
+      <div class="post-search-wrap mt-3">
+        <form
+          class="d-flex justify-content-center"
+          method="get"
+          action="search.do"
+        >
+          <input
+            class="form-control w-25 me-2"
+            type="search"
+            name="keyword"
+            placeholder="검색어 입력"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success" type="submit">검색</button>
+        </form>
+      </div>
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
