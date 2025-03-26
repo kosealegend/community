@@ -10,21 +10,20 @@
 <div class="mt-1"></div>
 <jsp:include page="../include/lnb.jsp"/>
 </div>
-<div class="w-90">
-	<h2 class="mt-5 mb-3 fw-bold">글 신고 관리</h2>
-	<table class="table table-dark table-hover">
+<div class="w-90 mx-5 flex-fill">
+	<h2 class="mt-5 mb-3 fw-bold">Report Manegement</h2>
+	<table class="table table-dark table-hover text-center">
 		<colgroup>
-			<col width="10%"/>
-			<col width="10%"/>
-			<col width="30%"/>
-			<col width="10%"/>
-			<col width="10%"/>
-			<col width="5%"/>
+			<col width="15%"/>
+			<col width="15%"/>
 			<col width="20%"/>
+			<col width="15%"/>
+			<col width="15%"/>
+			<col width="15%"/>
 		</colgroup>
 		<thead>
 			<tr class="text-center">
-			<th>아이디</th><th>닉네임</th><th>이메일</th><th>성별</th><th>연락처</th><th>가입일</th><th>상태</th>
+			<th>신고ID</th><th>신고자ID</th><th>신고 글</th><th>카테고리</th><th>접수시간</th><th>신고유형</th>
 			</tr>
 		</thead>
 	</table>

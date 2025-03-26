@@ -10,8 +10,22 @@
 <div class="mt-1"></div>
 <jsp:include page="../include/lnb.jsp"/>
 </div>
-<div class="w-90">
-<h1>댓글 신고 관리</h1>
+<div class="w-90 mx-5 flex-fill">
+	<h2 class="mt-5 mb-3 fw-bold">Review Report Manegement</h2>
+	<table class="table table-dark table-hover text-center">
+		<colgroup>
+			<col width="15%"/>
+			<col width="20%"/>
+			<col width="20%"/>
+			<col width="15%"/>
+			<col width="25%"/>
+		</colgroup>
+		<thead>
+			<tr class="text-center">
+			<th>신고ID</th><th>신고자ID</th><th>댓글ID</th><th>카테고리</th><th>접수시간</th>
+			</tr>
+		</thead>
+	</table>
 </div>
 </div>
 </div>

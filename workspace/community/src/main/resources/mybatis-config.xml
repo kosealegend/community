@@ -9,7 +9,7 @@
 	</settings>
 	
 	<typeAliases>
-	
+	<typeAlias alias="JHIdiot" type="com.my.humor.vo.UserVO"/>
 	</typeAliases>
 	
 	<mappers>
