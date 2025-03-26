@@ -9,12 +9,12 @@
 <ul class="list-group mt-5">
 
 <li class="list-group-item">
-	<a href="${contextPath}/admin/setting/reportMan" class="a-link text-decoration-none">
+	<a href="${contextPath}/admin/setting/userMan" class="a-link text-decoration-none">
 	유저관리
 	</a>
 </li>
 <li class="list-group-item">
-	<a href="${contextPath}/admin/setting/userMan" class="a-link text-decoration-none">
+	<a href="${contextPath}/admin/setting/reportMan" class="a-link text-decoration-none">
 	신고관리
 	</a>
 </li>
