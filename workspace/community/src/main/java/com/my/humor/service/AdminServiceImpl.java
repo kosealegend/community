@@ -19,4 +19,12 @@ public class AdminServiceImpl implements AdminService{
 	public List<UserVO> Userlist() throws Exception{
 		return dao.Userlist();
 	}
+	@Override
+	public List<UserVO> PostRelist() throws Exception{
+		return dao.PostRelist();
+	}
+	@Override
+	public List<UserVO> ReplyRelist() throws Exception{
+		return dao.ReplyRelist();
+	}
 }

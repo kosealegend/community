@@ -26,6 +26,18 @@
 			<th>신고ID</th><th>신고자ID</th><th>신고 글</th><th>카테고리</th><th>접수시간</th><th>신고유형</th>
 			</tr>
 		</thead>
+			<tbody>
+	<c:forEach items="${list}" var="item">
+	<tr>
+	<td class="text-center">${item.reportId}</td>
+	<td class="text-center">${item.reporterId}</td>
+	<td class="text-center">${item.postId}</td>
+	<td class="text-center">${item.categoryId}</td>
+	<td class="text-center">${item.reportedAt}</td>
+	<td class="text-center">${item.reportCategoryId}</td>
+	</tr>
+	</c:forEach>
+	</tbody>
 	</table>
 </div>
 </div>

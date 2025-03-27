@@ -7,12 +7,12 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ReplyReportVO {
-	
+public class PostReportVO {
+
 	private int reportId;
 	private String reporterId;
-	private int replyId;
-	private int reportCategoryId;
+	private int postId;
+	private int categoryId;
 	private String reportedAt;
-
+	private int reportCategoryId;
 }

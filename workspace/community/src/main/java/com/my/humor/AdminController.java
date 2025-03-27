@@ -32,19 +32,22 @@ public class AdminController {
 	public void GetUserSet(Model model) throws Exception{
 		logger.info("유저 관리 진입");
 		List<UserVO> list = adminService.Userlist();
-		System.out.println(list);
 		model.addAttribute("list",list);
 		
 	}
 	
 	@GetMapping("/setting/reportMan")
-	public void GetReportSet() throws Exception{
+	public void GetReportSet(Model model) throws Exception{
 		logger.info("신고 관리 진입");
+		List<UserVO> list = adminService.PostRelist();
+		model.addAttribute("list",list);
 	}
 	
 	@GetMapping("/setting/reportReMan")
-	public void GetReportReSet() throws Exception{
+	public void GetReportReSet(Model model) throws Exception{
 		logger.info("댓글 신고 관리 진입");
+		List<UserVO> list = adminService.ReplyRelist();
+		model.addAttribute("list",list);
 	}
 	
 }

@@ -12,4 +12,23 @@ from users
 order by user_id desc
 ]]>
 </select>
+<select id="postreport" resultType="PostRe">
+<![CDATA[
+select
+report_id, reporter_id, post_id, category_id, reported_at, 
+report_category_id
+from post_report
+order by report_id desc
+]]>
+</select>
+<select id="replyreport" resultType="ReplyRe">
+<![CDATA[
+select
+report_id, reporter_id, reply_id, report_category_id,
+reported_at
+from reply_report
+order by report_id desc
+]]>
+</select>
+
 </mapper>

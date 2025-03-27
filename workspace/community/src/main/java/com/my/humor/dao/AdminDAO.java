@@ -8,4 +8,8 @@ public interface AdminDAO {
 
 	List<UserVO> Userlist() throws Exception;
 
+	List<UserVO> PostRelist() throws Exception;
+
+	List<UserVO> ReplyRelist() throws Exception;
+
 }

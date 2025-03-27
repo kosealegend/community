@@ -21,4 +21,15 @@ public class AdminDAOImpl implements AdminDAO{
 	public List<UserVO> Userlist() throws Exception{
 		return sql.selectList(namespace+".userlist");
 	}
+	
+	@Override
+	public List<UserVO> PostRelist() throws Exception{
+		return sql.selectList(namespace+".postreport");
+	}
+	
+	@Override
+	public List<UserVO> ReplyRelist() throws Exception{
+		return sql.selectList(namespace+".replyreport");
+	}
+	
 }
