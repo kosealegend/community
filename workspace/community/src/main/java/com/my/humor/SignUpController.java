@@ -29,17 +29,17 @@ public class SignUpController {
     @Bean
     BCryptPasswordEncoder passEncoder() { return new BCryptPasswordEncoder(); }
     
-    // 회원가입 페이지 진입
+    // �쉶�썝媛��엯 �럹�씠吏� 吏꾩엯
     @GetMapping("/signup")
     public String getSignUp() throws Exception {
-        logger.info("회원가입 페이지 진입");
+        logger.info("�쉶�썝媛��엯 �럹�씠吏� 吏꾩엯");
         return "register/signup";
     }
     
-    // 회원가입 처리
+    // �쉶�썝媛��엯 泥섎━
     @PostMapping("/signup")
     public String postSignUp(SignUpVO vo) throws Exception {
-        logger.info("회원가입 기능");
+        logger.info("�쉶�썝媛��엯 湲곕뒫");
         String inputPass = vo.getPassword();
         String pass = passEncoder.encode(inputPass);
         vo.setPassword(pass);
@@ -47,6 +47,8 @@ public class SignUpController {
         String inputPass2 = vo.getPasswordCheck();
         String pass2 = passEncoder.encode(inputPass2);
         vo.setPasswordCheck(pass2);
+        
+        vo.setRole("0");
 
         signupservice.signUp(vo);
         return "redirect:/";

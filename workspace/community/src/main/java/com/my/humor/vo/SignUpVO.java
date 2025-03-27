@@ -9,7 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SignUpVO {
-    private int userId, age;
-    private String password, passwordCheck, nickname, email, gender, role, phoneNumber;
+    private int age;
+    private String  userId, password, passwordCheck, nickname, email, gender, role, phoneNumber;
     private Date joinDate;
 }

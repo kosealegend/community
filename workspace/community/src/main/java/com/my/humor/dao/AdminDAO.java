@@ -1,5 +1,7 @@
 package com.my.humor.dao;
 
-public interface AdminDAO {
 
+
+public interface AdminDAO {
+	
 }
