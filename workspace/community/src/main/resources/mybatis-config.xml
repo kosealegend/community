@@ -15,6 +15,7 @@
 	<mappers>
 		<mapper resource="mapper/member-mapper.xml" />
 		<mapper resource="mapper/signup-mapper.xml" />
+		<mapper resource="mapper/adminMapper.xml" />
 	</mappers>
 	
 </configuration>

@@ -20,7 +20,7 @@ public class Admininterceptor extends HandlerInterceptorAdapter{
 	UserVO member = (UserVO)session.getAttribute("member");
 //세션에서 "member"속성에 저장된 	MemberVO객체[사용자의 정보를 가지고 있는 객체]를 가지고 옵니다
 	if(member == null) {
-		res.sendRedirect("/member/signin");
+		res.sendRedirect("/");
 		return false;/*자바스크립트에서는 기본적인 이벤트 전파를 방지
 		1)조건에 따른 실패 또는 부정적인 결과 = 메소드가 조건을 만족하지 못했거나 실패 했을때 호출자에게 알리기 위해
 		2)boolean을 리턴하는 메소드에서 특정 조건이 만족되지 않으면  false
