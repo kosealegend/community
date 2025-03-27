@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- <jsp:include page="../include/header.jsp"/> --%>
+<jsp:include page="../../include/header.jsp"/>
 
 <div class="container-fluid bg-gradient-primary">
 <div class="row">
@@ -25,6 +25,17 @@
 			<th>신고ID</th><th>신고자ID</th><th>댓글ID</th><th>카테고리</th><th>접수시간</th>
 			</tr>
 		</thead>
+			<tbody>
+		<c:forEach items="${list}" var="item">
+		<tr>
+		<td class="text-center">${item.reportId}</td>
+		<td class="text-center">${item.reporterId}</td>
+		<td class="text-center">${item.replyId}</td>
+		<td class="text-center">${item.reportCategoryId}</td>
+		<td class="text-center">${item.reportedAt}</td>
+		</tr>
+		</c:forEach>
+	</tbody>
 	</table>
 </div>
 </div>
@@ -32,4 +43,4 @@
 </div>
 </div>
 
-<%-- <jsp:include page="../include/footer.jsp"/> --%>
+<jsp:include page="../../include/footer.jsp"/>

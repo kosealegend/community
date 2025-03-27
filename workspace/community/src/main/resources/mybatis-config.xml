@@ -10,11 +10,14 @@
 	
 	<typeAliases>
 	<typeAlias alias="JHIdiot" type="com.my.humor.vo.UserVO"/>
+	<typeAlias alias="PostRe" type="com.my.humor.vo.PostReportVO"/>
+	<typeAlias alias="ReplyRe" type="com.my.humor.vo.ReplyReportVO"/>	
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="mapper/member-mapper.xml" />
 		<mapper resource="mapper/signup-mapper.xml" />
+		<mapper resource="mapper/adminMapper.xml" />
 	</mappers>
 	
 	
