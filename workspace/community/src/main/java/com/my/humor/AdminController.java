@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.my.humor.service.AdminService;
 import com.my.humor.vo.UserVO;
@@ -35,6 +37,20 @@ public class AdminController {
 		model.addAttribute("list",list);
 		
 	}
+	@GetMapping(value="/setting/userDetail")
+	public void getUserDetail(@RequestParam("n") String userId, Model model)throws Exception{
+		logger.info("유저 View");
+		UserVO user = adminService.UserDetail(userId);
+		model.addAttribute("user",user);
+	}
+	@GetMapping(value="/setting/userModify")
+	public void getUserModify(@RequestParam("n") String userId, Model model) throws Exception{
+		logger.info("수정페이지 진입");
+		//GoodsViewVO변수에 goods상품정보를 저장
+		UserVO user = adminService.UserDetail(userId);
+		model.addAttribute("user",user);	
+	}
+
 	
 	@GetMapping("/setting/reportMan")
 	public void GetReportSet(Model model) throws Exception{

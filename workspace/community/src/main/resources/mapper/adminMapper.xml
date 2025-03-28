@@ -12,6 +12,16 @@ from users
 order by user_id desc
 ]]>
 </select>
+<select id="userdetail" resultType="JHIdiot">
+<![CDATA[
+select
+user_id, nickname, email, gender,
+age, phone_number, join_date, role
+from users
+where user_id = #{userId}
+order by user_id desc
+]]>
+</select>
 <select id="postreport" resultType="PostRe">
 <![CDATA[
 select

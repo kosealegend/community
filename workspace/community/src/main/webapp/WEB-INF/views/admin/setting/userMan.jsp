@@ -1,7 +1,7 @@
  <jsp:include page="../../include/header.jsp"/>
  <%@ page contentType="text/html;charset=UTF-8" language="java" %> <%@ taglib
 prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <div class="container-fluid bg-gradient-primary">
 <div class="row">
 <div class="col-md-12">
@@ -30,7 +30,11 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 		<tbody>
 	<c:forEach items="${list}" var="item">
 	<tr>
-	<td class="text-center">${item.userId}</td>
+	<td class="text-center">
+	<a href="/admin/setting/userDetail?n=${item.userId}" class="text-white">
+	${item.userId}
+	</a>
+	</td>
 	<td class="text-center">${item.nickname}</td>
 	<td class="text-center">${item.email}</td>
 	<td class="text-center">${item.gender}</td>
