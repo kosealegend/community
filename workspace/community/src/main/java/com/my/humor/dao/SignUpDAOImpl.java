@@ -19,5 +19,11 @@ public class SignUpDAOImpl implements SignUpDAO {
 	//회원가입
 	@Override
 	public void signUp(SignUpVO vo) throws Exception {sql.insert(namespace + ".signup", vo);}
+	
+	//로그인
+	@Override
+	public SignUpVO signIn(SignUpVO vo) throws Exception {return sql.selectOne(namespace + ".signin", vo);}
+	
+	//
 
 }

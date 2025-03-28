@@ -5,11 +5,17 @@
 
 <mapper namespace="com.my.humor.mapper.signup-mapper">
     <!-- 아무 SQL이 없어도 실행은 됨 -->
-    <insert id="signup">
-    <![CDATA[
-        INSERT INTO users (user_id, age, password, password_check, nickname, email, gender, role, phone_number) 
-        VALUES (#{userId}, #{age}, #{password}, #{passwordCheck}, #{nickname}, #{email}, #{gender}, #{role,jdbcType=VARCHAR}, #{phoneNumber})
-    ]]>
-</insert>
-    
+  <insert id="signup">
+	  <![CDATA[
+	      INSERT INTO users (user_id, age, password, password_check, nickname, email, gender, role, phone_number) 
+	      VALUES (#{userId}, #{age}, #{password}, #{passwordCheck}, #{nickname}, #{email}, #{gender}, #{role,jdbcType=VARCHAR}, #{phoneNumber})
+	  ]]>
+  </insert>
+  <select id ="signin" resultType="com.my.humor.vo.SignUpVO">
+	<![CDATA[
+		SELECT *
+		FROM
+		users where user_id = #{userId}
+	]]>
+  </select>
 </mapper>
