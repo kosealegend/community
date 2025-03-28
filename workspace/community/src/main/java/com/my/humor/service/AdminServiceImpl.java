@@ -20,6 +20,10 @@ public class AdminServiceImpl implements AdminService{
 		return dao.Userlist();
 	}
 	@Override
+	public UserVO UserDetail(String userId) throws Exception{
+		return dao.UserDetail(userId);
+	}
+	@Override
 	public List<UserVO> PostRelist() throws Exception{
 		return dao.PostRelist();
 	}

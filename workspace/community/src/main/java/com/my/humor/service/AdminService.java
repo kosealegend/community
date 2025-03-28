@@ -12,4 +12,6 @@ public interface AdminService {
 
 	List<UserVO> ReplyRelist() throws Exception;
 
+	UserVO UserDetail(String userId) throws Exception;
+
 }

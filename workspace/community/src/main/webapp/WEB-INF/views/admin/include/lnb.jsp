@@ -12,9 +12,7 @@
 	<a href="${contextPath}/admin/setting/userMan" class="btn btn-outline-primary">
 	유저관리
 	</a>
-</li>
-
-<div class="btn-group dropend">
+	<div class="btn-group dropend d-block">
   <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
     신고관리
   </button>
@@ -31,4 +29,6 @@
 	</li>
   </ul>
 </div>
+</li>
+
 </ul>
