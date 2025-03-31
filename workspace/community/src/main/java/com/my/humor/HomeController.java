@@ -26,7 +26,7 @@ public class HomeController {
 		
 		logger.info("home 진입");
 		
-		model.addAttribute("categoryList", categoryService.getCategory());
+		// model.addAttribute("categoryList", categoryService.getCategory());
 		
 		return "home";
 	}
