@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.my.humor.service.CategoryService;
+import com.my.humor.service.PostService;
 import com.my.humor.vo.PostVO;
 
 @Controller
@@ -17,7 +18,9 @@ import com.my.humor.vo.PostVO;
 public class BoardController {
 	
 	@Autowired
-	CategoryService categroyService;
+	CategoryService categoryService;
+	@Autowired
+	PostService postService;
 
 	 @GetMapping("/{categoryName}")
     public String listByCategory(@PathVariable("categoryName") String categoryName, Model model) {
@@ -42,11 +45,12 @@ public class BoardController {
 	
 	@PostMapping("/write")
 	public String wirtePost(@RequestParam("categoryName") String categoryName, PostVO postVO) {
-		int categoryId = categroyService.getCategoryID(categoryName);
-		System.out.println(postVO);
-		postVO.setCategoryId(categoryId);
+		int categoryId = categoryService.getCategoryID(categoryName);
+	    postVO.setCategoryId(categoryId);
 
-		System.out.println(postVO);
-		return "";
+	    postService.insertPost(postVO); // 서비스에서 대표 이미지 추출 + 저장
+
+	    return "redirect:/board/list?categoryName=" + categoryName;
 	}
+
 }

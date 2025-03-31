@@ -3,66 +3,55 @@ package com.my.humor.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.MalformedURLException;
 import java.util.UUID;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.core.io.UrlResource;
-import org.springframework.http.MediaType;
-import org.springframework.http.MediaTypeFactory;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import org.springframework.beans.factory.annotation.Value;
 
-
-@RestController
-@RequestMapping("/image")
+@Controller
 public class ImageUploadController {
 
-    @Value("${file.upload.path}")
-    private String uploadPath;  // application.properties에서 가져옴
+	@PostMapping("/image/upload")
+	public void uploadImage(@RequestParam("upload") MultipartFile upload,
+	                        @RequestParam("CKEditorFuncNum") String callback,
+	                        HttpServletRequest request,
+	                        HttpServletResponse response) throws IOException {
 
-    @PostMapping("/upload")
-    public void uploadImage(@RequestParam("upload") MultipartFile upload,
-                            HttpServletResponse response) throws IOException {
-        String originalName = upload.getOriginalFilename();
-        String savedName = UUID.randomUUID() + "_" + originalName;
-        File file = new File(uploadPath, savedName);
+	    String originalFilename = upload.getOriginalFilename();
+	    String savedName = UUID.randomUUID() + "_" + originalFilename;
 
-        if (!file.getParentFile().exists()) {
-            file.getParentFile().mkdirs(); // 폴더 없으면 생성
-        }
+	    // ✅ ServletContext 가져오기
+	    ServletContext context = request.getSession().getServletContext();
+	    String realPath = context.getRealPath("/resources/upload/");
+	    System.out.println("실제 업로드 경로: " + realPath);
 
-        upload.transferTo(file);
+	    // ✅ 폴더 생성
+	    File uploadDir = new File(realPath);
+	    if (!uploadDir.exists()) uploadDir.mkdirs();
 
-        String imageUrl = "/image/files/" + savedName;
+	    // ✅ 파일 저장
+	    File file = new File(realPath, savedName);
+	    upload.transferTo(file);
 
-        response.setCharacterEncoding("utf-8");
-        response.setContentType("text/html;charset=utf-8");
-        PrintWriter out = response.getWriter();
-        out.println("<script>window.parent.CKEDITOR.tools.callFunction(1, '" + imageUrl + "', '업로드 성공')</script>");
-        out.flush();
-    }
+	    // ✅ 브라우저에서 접근할 URL
+	    String fileUrl = request.getContextPath() + "/resources/upload/" + savedName;
 
-    @GetMapping("/files/{filename:.+}")
-    public ResponseEntity<UrlResource> serveImage(@PathVariable String filename) throws MalformedURLException {
-        File file = new File(uploadPath + filename);
-        if (!file.exists()) {
-            return ResponseEntity.notFound().build();
-        }
+	    response.setCharacterEncoding("utf-8");
+	    response.setContentType("text/html;charset=utf-8");
+	    PrintWriter out = response.getWriter();
+	    out.println("<script>");
+	    out.println("window.parent.CKEDITOR.tools.callFunction(" + callback + ", '" + fileUrl + "', '업로드 완료');");
+	    out.println("</script>");
+	    out.flush();
+	}
 
-        UrlResource resource = new UrlResource(file.toURI());
 
-        return ResponseEntity.ok()
-                .contentType(MediaTypeFactory.getMediaType(file.getName()).orElse(MediaType.APPLICATION_OCTET_STREAM))
-                .body(resource);
-    }
+
 }

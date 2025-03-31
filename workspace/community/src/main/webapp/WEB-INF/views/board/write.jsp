@@ -10,18 +10,6 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
       rel="stylesheet"
     />
     <link rel="stylesheet" href="${contextPath}/resources/css/board.css" />
-    <!-- ckeditor -->
-    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
-    <script>
-	  document.addEventListener('DOMContentLoaded', function () {
-	    const form = document.querySelector('form');
-	    form.addEventListener('submit', function () {
-	      for (let name in CKEDITOR.instances) {
-	        CKEDITOR.instances[name].updateElement();
-	      }
-	    });
-	  });
-	</script>
   </head>
   <body>
     <jsp:include page="../include/header.jsp" />
@@ -66,12 +54,14 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
               rows="10"
               class="form-control"
             ></textarea>
-            <script>
-              CKEDITOR.replace('content', {
-                filebrowserUploadUrl: '${contextPath}/image/upload', // 이미지 업로드 처리 URL
-                filebrowserUploadMethod: 'form', // form 방식으로 업로드
-              });
-            </script>
+            <script src="${contextPath}/resources/ckeditor/ckeditor.js"></script>
+			<script>
+				CKEDITOR.replace('content', {
+				    filebrowserUploadUrl: '${contextPath}/image/upload',
+				    filebrowserImageUploadUrl: '${contextPath}/image/upload',
+				    filebrowserUploadMethod: 'form'
+				  });
+			</script>
           </div>
 
           <!-- 버튼 -->
@@ -88,6 +78,3 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </body>
 </html>
     
-  </body>
-  
-</html>
