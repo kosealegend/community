@@ -15,6 +15,9 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
   </head>
   <body>
+  
+  	<jsp:include page="../include/header.jsp" />
+  	
     <section class="board-container mt-4">
       <!-- Header -->
       <div class="mb-4">

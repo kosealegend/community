@@ -17,13 +17,16 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     </style>
   </head>
   <body>
+  	<jsp:include page="../include/header.jsp" />
     <section class="board-container mt-4">
       <!-- 제목 / Header -->
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2>게시판 제목</h2>
-        <a href="${contextPath}/board/write?categoryName=${categoryName}" class="btn btn-primary">글쓰기</a>
-      </div>
-
+      
+	      <div class="d-flex justify-content-between align-items-center mb-3">
+	        <h2>게시판 제목</h2>
+	        <c:if test="${not empty sessionScope.member}">
+		        <a href="${contextPath}/board/write?categoryName=${categoryName}" class="btn btn-primary">글쓰기</a>
+			</c:if>
+	      </div>
       <!-- 테이블 or 리스트 -->
       <div class="table-responsive post-list-area">
         <table class="table table-striped">
