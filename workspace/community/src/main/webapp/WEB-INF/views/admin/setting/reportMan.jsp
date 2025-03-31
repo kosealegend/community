@@ -11,7 +11,7 @@
 <jsp:include page="../include/lnb.jsp"/>
 </div>
 <div class="w-90 mx-5 flex-fill">
-	<h2 class="mt-5 mb-3 fw-bold">Report Manegement</h2>
+	<h2 class="mt-5 mb-3 fw-bold">Report Manegement shit</h2>
 	<table class="table table-dark table-hover text-center">
 		<colgroup>
 			<col width="15%"/>
