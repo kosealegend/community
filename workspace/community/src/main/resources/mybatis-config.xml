@@ -9,7 +9,7 @@
 	</settings>
 	
 	<typeAliases>
-	<typeAlias alias="JHIdiot" type="com.my.humor.vo.UserVO"/>
+	<typeAlias alias="JHIdiot" type="com.my.humor.vo.SignUpVO"/>
 	<typeAlias alias="PostRe" type="com.my.humor.vo.PostReportVO"/>
 	<typeAlias alias="ReplyRe" type="com.my.humor.vo.ReplyReportVO"/>	
 	</typeAliases>

@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.my.humor.dao.AdminDAO;
-import com.my.humor.vo.UserVO;
+import com.my.humor.vo.SignUpVO;
 
 @Service
 public class AdminServiceImpl implements AdminService{
@@ -16,19 +16,19 @@ public class AdminServiceImpl implements AdminService{
 	private AdminDAO dao;
 	
 	@Override
-	public List<UserVO> Userlist() throws Exception{
+	public List<SignUpVO> Userlist() throws Exception{
 		return dao.Userlist();
 	}
 	@Override
-	public UserVO UserDetail(String userId) throws Exception{
+	public SignUpVO UserDetail(String userId) throws Exception{
 		return dao.UserDetail(userId);
 	}
 	@Override
-	public List<UserVO> PostRelist() throws Exception{
+	public List<SignUpVO> PostRelist() throws Exception{
 		return dao.PostRelist();
 	}
 	@Override
-	public List<UserVO> ReplyRelist() throws Exception{
+	public List<SignUpVO> ReplyRelist() throws Exception{
 		return dao.ReplyRelist();
 	}
 }

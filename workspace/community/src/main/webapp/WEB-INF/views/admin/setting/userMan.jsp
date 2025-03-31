@@ -40,7 +40,11 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<td class="text-center">${item.gender}</td>
 	<td class="text-center">${item.phoneNumber}</td>
 	<td class="text-center">${item.joinDate}</td>
-	<td class="text-center">${item.role}</td>
+	<c:choose>
+            <c:when test="${item.role == 0}"><td class="text-center">일반</td></c:when>
+            <c:when test="${item.role == 9}"><td class="text-center">관리자</td></c:when>
+            <c:otherwise>알 수 없음</c:otherwise>
+    </c:choose>
 	</tr>
 	</c:forEach>
 	</tbody>

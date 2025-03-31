@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.my.humor.service.AdminService;
-import com.my.humor.vo.UserVO;
+import com.my.humor.vo.SignUpVO;
+import com.my.humor.vo.SignUpVO;
 
 @Controller
 @RequestMapping("/admin/*")
@@ -33,36 +34,28 @@ public class AdminController {
 	@GetMapping("/setting/userMan")
 	public void GetUserSet(Model model) throws Exception{
 		logger.info("유저 관리 진입");
-		List<UserVO> list = adminService.Userlist();
+		List<SignUpVO> list = adminService.Userlist();
 		model.addAttribute("list",list);
 		
 	}
 	@GetMapping(value="/setting/userDetail")
 	public void getUserDetail(@RequestParam("n") String userId, Model model)throws Exception{
 		logger.info("유저 View");
-		UserVO user = adminService.UserDetail(userId);
+		SignUpVO user = adminService.UserDetail(userId);
 		model.addAttribute("user",user);
 	}
-	@GetMapping(value="/setting/userModify")
-	public void getUserModify(@RequestParam("n") String userId, Model model) throws Exception{
-		logger.info("수정페이지 진입");
-		//GoodsViewVO변수에 goods상품정보를 저장
-		UserVO user = adminService.UserDetail(userId);
-		model.addAttribute("user",user);	
-	}
-
 	
 	@GetMapping("/setting/reportMan")
 	public void GetReportSet(Model model) throws Exception{
 		logger.info("신고 관리 진입");
-		List<UserVO> list = adminService.PostRelist();
+		List<SignUpVO> list = adminService.PostRelist();
 		model.addAttribute("list",list);
 	}
 	
 	@GetMapping("/setting/reportReMan")
 	public void GetReportReSet(Model model) throws Exception{
 		logger.info("댓글 신고 관리 진입");
-		List<UserVO> list = adminService.ReplyRelist();
+		List<SignUpVO> list = adminService.ReplyRelist();
 		model.addAttribute("list",list);
 	}
 	

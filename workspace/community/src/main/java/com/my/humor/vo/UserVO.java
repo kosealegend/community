@@ -1,5 +1,7 @@
 package com.my.humor.vo;
 
+import java.sql.Date;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -9,15 +11,8 @@ import lombok.ToString;
 @ToString
 public class UserVO {
 
-	private String userId;
-	private String password;
-	private String passwordCheck;
-	private String nickname;
-	private String email;
-	private String gender;
 	private int age;
-	private String phoneNumber;
-	private String joinDate;
-	private int role;
+    private String  userId, password, passwordCheck, nickname, email, gender, role, phoneNumber;
+    private Date joinDate;
 	
 }
