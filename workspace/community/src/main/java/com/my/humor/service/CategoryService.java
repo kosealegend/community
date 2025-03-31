@@ -7,4 +7,6 @@ import com.my.humor.vo.CategoryVO;
 public interface CategoryService {
 
 	public List<CategoryVO> getCategory();
+	
+	int getCategoryID(String categoryName);
 }

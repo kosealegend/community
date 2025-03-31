@@ -65,7 +65,7 @@ public class SignUpController {
 
         SignUpVO login = signupservice.signIn(vo);
         HttpSession session = req.getSession();
-
+        
         if (login == null) {
             session.setAttribute("member", null);
             rttr.addFlashAttribute("msg", "아이디가 존재하지 않습니다.");

@@ -22,6 +22,17 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.my.humor" />
+
+	<context:property-placeholder location="classpath:application.properties" />
+	<annotation-driven />
+	
+	<resources mapping="/image/files/**" location="file:/C:/dev/upload/ckeditor/" />
+	
+	<beans:bean id="multipartResolver"
+	            class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	    <beans:property name="maxUploadSize" value="10485760" />
+	</beans:bean>
+	
 	<!-- <beans:bean id="AdminInterceptor" class="com.my.humor.interceptor.Admininterceptor"/>
 	<interceptors>
 	<interceptor>
@@ -29,6 +40,8 @@
 		<beans:ref bean="AdminInterceptor"/>
 	</interceptor>
 	</interceptors> -->
+	
+	
 	
 	
 </beans:beans>

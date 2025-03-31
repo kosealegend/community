@@ -10,14 +10,22 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
       rel="stylesheet"
     />
     <link rel="stylesheet" href="${contextPath}/resources/css/board.css" />
-	<!-- ckeditor -->
-	<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
-
+    <!-- ckeditor -->
+    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+    <script>
+	  document.addEventListener('DOMContentLoaded', function () {
+	    const form = document.querySelector('form');
+	    form.addEventListener('submit', function () {
+	      for (let name in CKEDITOR.instances) {
+	        CKEDITOR.instances[name].updateElement();
+	      }
+	    });
+	  });
+	</script>
   </head>
   <body>
-  
-  	<jsp:include page="../include/header.jsp" />
-  	
+    <jsp:include page="../include/header.jsp" />
+
     <section class="board-container mt-4">
       <!-- Header -->
       <div class="mb-4">
@@ -28,9 +36,14 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
       <div class="write_wrap">
         <form
           method="post"
-          action="${contextPath}/board/write"
+          action="${contextPath}/board/write?categoryName=${categoryName}"
           enctype="multipart/form-data"
         >
+          <input
+			  type="hidden"
+			  name="userId"
+			  value="${sessionScope.member.userId}"
+			/>
           <!-- 제목 입력 -->
           <div class="mb-4">
             <label for="title" class="form-label">제목</label>
@@ -54,7 +67,10 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
               class="form-control"
             ></textarea>
             <script>
-              CKEDITOR.replace('content');
+              CKEDITOR.replace('content', {
+                filebrowserUploadUrl: '${contextPath}/image/upload', // 이미지 업로드 처리 URL
+                filebrowserUploadMethod: 'form', // form 방식으로 업로드
+              });
             </script>
           </div>
 
@@ -68,5 +84,10 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+    
   </body>
+  
 </html>
