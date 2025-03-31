@@ -22,13 +22,13 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.my.humor" />
-	<!-- <beans:bean id="AdminInterceptor" class="com.my.humor.interceptor.Admininterceptor"/>
+	<beans:bean id="AdminInterceptor" class="com.my.humor.interceptor.Admininterceptor"/>
 	<interceptors>
 	<interceptor>
 		<mapping path="/admin/**"/>
 		<beans:ref bean="AdminInterceptor"/>
 	</interceptor>
-	</interceptors> -->
+	</interceptors>
 	
 	
 </beans:beans>

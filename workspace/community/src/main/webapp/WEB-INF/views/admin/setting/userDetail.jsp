@@ -48,13 +48,18 @@
 </div>
 
 <div class="input-group">
-    <label class="form-label w-25 fw-bold">권한 및 제재</label>
+    <label class="form-label w-25 fw-bold" for="role">권한 및 제재</label>
     <span class="w-75">
-        <c:choose>
-            <c:when test="${user.role == 1}">일반유저</c:when>
-            <c:when test="${user.role == 9}">관리자</c:when>
-            <c:otherwise>알 수 없음</c:otherwise>
-        </c:choose>
+        <select id="role" name="role" class="form-select">
+            <option value="9" ${user.role == 9 ? 'selected' : ''}>관리자</option>
+            <option value="0" ${user.role == 0 ? 'selected' : ''}>일반유저</option>
+            <option value="1" ${user.role == 1 ? 'selected' : ''}>1차 경고</option>
+            <option value="2" ${user.role == 2 ? 'selected' : ''}>2차 경고</option>
+            <option value="3" ${user.role == 3 ? 'selected' : ''}>30일 정지</option>
+            <option value="4" ${user.role == 4 ? 'selected' : ''}>60일 정지</option>
+            <option value="5" ${user.role == 5 ? 'selected' : ''}>천년 정지</option>
+          
+        </select>
     </span>
 </div>
 

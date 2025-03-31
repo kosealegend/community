@@ -6,7 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import com.my.humor.vo.UserVO;
+import com.my.humor.vo.SignUpVO;
 
 //특정 조건에 맞지 않으면 가로챔
 //스프링 프레임워크에서 사용하는 인터셉터클래스를 사용할것입니다
@@ -17,7 +17,7 @@ public class Admininterceptor extends HandlerInterceptorAdapter{
 	public boolean preHandle(HttpServletRequest req, HttpServletResponse res, Object obj) throws Exception{
 //req:요청, res:응답, obj:핸들러	 preHandle이 매서드는 요청이 처리되기전에 실행됩니다 여기서 요청을 가로채고 필요한 조건을 체크합니다	 
 	HttpSession session = req.getSession();//세션을 가지고 옵니다
-	UserVO member = (UserVO)session.getAttribute("member");
+	SignUpVO member = (SignUpVO)session.getAttribute("member");
 //세션에서 "member"속성에 저장된 	MemberVO객체[사용자의 정보를 가지고 있는 객체]를 가지고 옵니다
 	if(member == null) {
 		res.sendRedirect("/");
@@ -29,10 +29,10 @@ public class Admininterceptor extends HandlerInterceptorAdapter{
 		 실패,잘못된 상태,또는 조건 불만족 일때를 나타낸다		
 		*/
 	}
-	if(member.getRole() != 9) {
-		res.sendRedirect("/");//location.href=
-		return false;
+	if(String.valueOf(member.getRole()).equals("9")) {
+		return true;
 	}
-	return true;
+	res.sendRedirect("/");//location.href=
+	return false;
 	}
 }
