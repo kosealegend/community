@@ -36,7 +36,8 @@
                 </form>
             </c:when>
             <c:otherwise>
-                <!-- 로그인 상태 표시 -->
+            <c:if test="${sessionScope.member.role == 0}">
+            <!-- 로그인 상태 표시 -->
                 <div class="row gx-2 gy-2 align-items-center justify-content-center">
                     <div class="col-auto">
                         <a href="/"><img src="${contextPath}/resources/image/코로세움.png" alt="코로세움"></a>
@@ -48,6 +49,24 @@
                         <a href="${contextPath}/register/signout" class="btn btn-danger">로그아웃</a>
                     </div>
                 </div>
+            </c:if>
+            <c:if test="${sessionScope.member.role == 9}">
+            <!-- 로그인 상태 표시 -->
+                <div class="row gx-2 gy-2 align-items-center justify-content-center">
+                    <div class="col-auto">
+                        <a href="/"><img src="${contextPath}/resources/image/코로세움.png" alt="코로세움"></a>
+                    </div>
+                    <div class="col-auto">
+                        <span>관리자 ${sessionScope.member.nickname}님 환영합니다!</span>
+                    </div>
+                    <div class="col-auto">
+                        <a href="${contextPath}/admin/adminhome" class="btn btn-danger">ADMIN</a>
+                    </div>
+                    <div class="col-auto">
+                        <a href="${contextPath}/register/signout" class="btn btn-danger">로그아웃</a>
+                    </div>
+                </div>
+            </c:if>
             </c:otherwise>
         </c:choose>
     </div>
