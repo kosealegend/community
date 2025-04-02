@@ -12,4 +12,8 @@ public interface CategoryMapper {
 
 	@Select("SELECT * FROM category")
 	List<CategoryVO> getCategory();
+	
+	@Select("SELECT category_id FROM CATEGORY WHERE category_name = #{categoryName}")
+	int getCategoryID(String categoryName);
+	
 }
