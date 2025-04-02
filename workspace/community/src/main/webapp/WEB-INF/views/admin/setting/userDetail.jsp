@@ -55,9 +55,7 @@
             <option value="0" ${user.role == 0 ? 'selected' : ''}>일반유저</option>
             <option value="1" ${user.role == 1 ? 'selected' : ''}>1차 경고</option>
             <option value="2" ${user.role == 2 ? 'selected' : ''}>2차 경고</option>
-            <option value="3" ${user.role == 3 ? 'selected' : ''}>30일 정지</option>
-            <option value="4" ${user.role == 4 ? 'selected' : ''}>60일 정지</option>
-            <option value="5" ${user.role == 5 ? 'selected' : ''}>천년 정지</option>
+            <option value="5" ${user.role == 3 ? 'selected' : ''}>천년 정지</option>
           
         </select>
     </span>
