@@ -11,14 +11,14 @@
 </c:if>
 
 <div class="container" style="max-width: 500px; margin: 0 auto; padding-top: 50px;">
-    <form id="findForm" action="${contextPath}/register/findId" method="post">
+    <form id="findForm" action="${contextPath}/register/findPw" method="post">
         <div class="form-group">
-            <input type="text" name="phoneNumber" placeholder="전화번호" class="form-control">
+            <input type="text" name="userId" placeholder="아이디" class="form-control">
         </div>
         <div class="form-group">
-            <input type="email" name="email" placeholder="이메일" class="form-control">
+            <input type="text" name="nickname" placeholder="닉네임" class="form-control">
         </div>
-        <button type="submit" onclick="findSubmit(); return false;" class="btn btn-primary">아이디 찾기</button>
+		<button type="submit" onclick="findPasswordSubmit(); return false;" class="btn btn-primary">비밀번호 찾기</button>
     </form>
 </div>
 
@@ -26,7 +26,7 @@
 
 <script>
     // submit 버튼 클릭시 form 전송
-    function findSubmit() {
-        document.getElementById('findForm').submit();
+    function findPasswordSubmit() {
+        document.getElementById('findPasswordForm').submit();
     }
 </script>
