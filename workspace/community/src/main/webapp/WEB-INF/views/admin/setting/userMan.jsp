@@ -30,10 +30,26 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 		<tbody>
 	<c:forEach items="${list}" var="item">
 	<tr>
-	<td class="text-center">
-	<a href="/admin/setting/userDetail?n=${item.userId}" class="text-white">
-	${item.userId}
-	</a>
+	
+	<c:choose>
+            <c:when test="${item.role == 0}">
+	            <td class="text-center">
+	            <a href="/admin/setting/userDetail?n=${item.userId}" class="text-white">
+				${item.userId}
+				</a>
+				</td>
+			</c:when>
+            <c:when test="${item.role == 9}">
+            	<td class="text-center">${item.userId}</td>
+            </c:when>
+            <c:otherwise>
+            <td class="text-center">
+	            <a href="/admin/setting/userDetail?n=${item.userId}" class="text-white">
+				${item.userId}
+				</a>
+			</c:otherwise>
+    </c:choose>
+	
 	</td>
 	<td class="text-center">${item.nickname}</td>
 	<td class="text-center">${item.email}</td>

@@ -6,6 +6,7 @@
 	<!--  기타 전역 설정  -->
 	<settings>
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
+		<setting name="jdbcTypeForNull" value="VARCHAR"/>
 	</settings>
 	
 	<typeAliases>

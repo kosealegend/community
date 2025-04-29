@@ -46,17 +46,14 @@
 	<label class="form-label w-25 fw-bold">가입일</label>
 	<span class="w-75">${user.joinDate}</span>
 </div>
-
 <div class="input-group">
     <label class="form-label w-25 fw-bold" for="role">권한 및 제재</label>
     <span class="w-75">
         <select id="role" name="role" class="form-select">
-            <option value="9" ${user.role == 9 ? 'selected' : ''}>관리자</option>
             <option value="0" ${user.role == 0 ? 'selected' : ''}>일반유저</option>
             <option value="1" ${user.role == 1 ? 'selected' : ''}>1차 경고</option>
             <option value="2" ${user.role == 2 ? 'selected' : ''}>2차 경고</option>
             <option value="5" ${user.role == 3 ? 'selected' : ''}>천년 정지</option>
-          
         </select>
     </span>
 </div>
@@ -67,14 +64,35 @@
 		<button id="delete_Btn" class="btn btn-outline-warning btn-lg">삭제</button>
 	</div>
 </div>
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 var formObj = $("form[role='form']");
-$("#modify_Btn").click(function(){
-	formObj.attr("action","/admin/setting/userModify");
-	formObj.attr("method","get")
-	formObj.submit();
+$("#modify_Btn").click(function(event){
+    event.preventDefault(); // 기본 폼 제출 방지
+
+    var userId = $("input[name='n']").val();
+    var role = $("#role").val();
+
+    $.ajax({
+        type: "POST",
+        url: "/admin/setting/userModify",
+        contentType: "application/json",
+        data: JSON.stringify({
+            userId: userId,
+            role: role
+        }),
+        success: function(response) {
+            alert("사용자 권한이 성공적으로 수정되었습니다!");
+        },
+        error: function(xhr, status, error) {
+            console.error("오류 발생:", error);
+            alert("권한 수정 중 오류가 발생했습니다.");
+        }
+    });
 });
+
 $("#delete_Btn").click(function(){
 var con = confirm("정말로 삭제 하시겠습니까?")
 if(con){
