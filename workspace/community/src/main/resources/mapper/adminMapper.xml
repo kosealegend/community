@@ -40,5 +40,11 @@ from reply_report
 order by report_id desc
 ]]>
 </select>
+<update id="updateUserRole">
+    <![CDATA[
+    UPDATE users SET role = #{role} WHERE user_id = #{userId}
+    ]]>
+</update>
+
 
 </mapper>

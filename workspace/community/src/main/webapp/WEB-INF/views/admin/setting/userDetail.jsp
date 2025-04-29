@@ -49,12 +49,13 @@
 <div class="input-group">
     <label class="form-label w-25 fw-bold" for="role">권한 및 제재</label>
     <span class="w-75">
-        <select id="role" name="role" class="form-select">
-            <option value="0" ${user.role == 0 ? 'selected' : ''}>일반유저</option>
-            <option value="1" ${user.role == 1 ? 'selected' : ''}>1차 경고</option>
-            <option value="2" ${user.role == 2 ? 'selected' : ''}>2차 경고</option>
-            <option value="5" ${user.role == 3 ? 'selected' : ''}>천년 정지</option>
-        </select>
+     <select id="role" name="role" class="form-select">
+    <option value="0" ${user.role eq '0' ? 'selected' : ''}>일반유저</option>
+    <option value="1" ${user.role eq '1' ? 'selected' : ''}>1차 경고</option>
+    <option value="2" ${user.role eq '2' ? 'selected' : ''}>2차 경고</option>
+    <option value="5" ${user.role eq '5' ? 'selected' : ''}>천년 정지</option>
+</select>
+        
     </span>
 </div>
 
@@ -70,10 +71,12 @@
 <script>
 var formObj = $("form[role='form']");
 $("#modify_Btn").click(function(event){
-    event.preventDefault(); // 기본 폼 제출 방지
+    event.preventDefault();
 
     var userId = $("input[name='n']").val();
     var role = $("#role").val();
+
+    console.log("전송할 데이터: ", userId, role); // 데이터 확인 로그 추가
 
     $.ajax({
         type: "POST",
@@ -85,9 +88,10 @@ $("#modify_Btn").click(function(event){
         }),
         success: function(response) {
             alert("사용자 권한이 성공적으로 수정되었습니다!");
+            console.log("서버 응답: ", response);
         },
         error: function(xhr, status, error) {
-            console.error("오류 발생:", error);
+            console.error("오류 발생:", xhr.responseText);
             alert("권한 수정 중 오류가 발생했습니다.");
         }
     });

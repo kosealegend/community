@@ -31,4 +31,11 @@ public class AdminServiceImpl implements AdminService{
 	public List<SignUpVO> ReplyRelist() throws Exception{
 		return dao.ReplyRelist();
 	}
+	 // 🔹 사용자 권한 수정 추가
+	@Override
+	public void modifyUserRole(String userId, String role) throws Exception {
+	    System.out.println("서비스 - userId: " + userId + ", role: " + role);
+	    dao.updateUserRole(userId, role);
+	}
+
 }

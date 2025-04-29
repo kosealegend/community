@@ -14,4 +14,6 @@ public interface AdminService {
 
 	SignUpVO UserDetail(String userId) throws Exception;
 
+	void modifyUserRole(String userId, String role) throws Exception;
+
 }

@@ -15,5 +15,6 @@ public interface AdminDAO {
 
 	SignUpVO UserDetail(String userId) throws Exception;
 
+	void updateUserRole(String userId, String role) throws Exception;
 
 }

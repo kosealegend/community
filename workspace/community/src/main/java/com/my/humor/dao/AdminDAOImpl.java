@@ -1,6 +1,8 @@
 package com.my.humor.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -35,5 +37,16 @@ public class AdminDAOImpl implements AdminDAO{
 	public List<SignUpVO> ReplyRelist() throws Exception{
 		return sql.selectList(namespace+".replyreport");
 	}
-	
+    @Override
+    public void updateUserRole(String userId, String role) throws Exception {
+        Map<String, String> params = new HashMap<>();
+        params.put("userId", userId);
+        params.put("role", role);
+        int updatedRows = sql.update(namespace + ".updateUserRole", params);
+        System.out.println("업데이트된 행 개수: " + updatedRows);
+
+        sql.update(namespace + ".updateUserRole", params);
+        
+    }
+
 }
