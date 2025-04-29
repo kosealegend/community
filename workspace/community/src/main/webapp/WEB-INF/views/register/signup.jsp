@@ -5,11 +5,11 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-12">
-                <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card o-hidden border-0 shadow-lg my-3">
                     <div class="card-body p-0">
                         <div class="row">
-                            <div class="col-lg-5 d-none"></div>
-                            <div class="col-lg-7">
+                            <div class="col-lg-7"><img src="../resources/image/페페.png" alt="회" class="img-fluid"></div><!-- 이미지  -->
+                            <div class="col-lg-5"><!-- 회원가입 블록 줄이기 -->
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">회원가입</h1>
@@ -25,6 +25,9 @@
                                             </div>
                                             <div class="mb-4">
                                                 <input type="text" placeholder="name" name="nickname" class="form-control form-control-user" required="required"/>
+                                            </div>
+                                             <div class="mb-4">
+                                                <input type="text" placeholder="만 나이로 적어주세요" name="age" class="form-control form-control-user" required="required"/>
                                             </div>
                                             <div class="mb-4">
                                                 <input type="text" placeholder="email" name="email" class="form-control form-control-user" required="required"/>

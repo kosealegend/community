@@ -11,19 +11,32 @@ import com.my.humor.vo.SignUpVO;
 public class SignUpDAOImpl implements SignUpDAO {
 
 	@Inject
-	private SqlSession sql;//sql¿¡ ¸í·É¾î¸¦ °¡Á®¿È
+	private SqlSession sql;//sqlï¿½ï¿½ ï¿½ï¿½É¾î¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
-	//¸ÅÆÛ¼³Á¤
+	//ë§¤í¼
 	private static String namespace="com.my.humor.mapper.signup-mapper";
 	
-	//È¸¿ø°¡ÀÔ
+	//íšŒì›ê°€ì…
 	@Override
 	public void signUp(SignUpVO vo) throws Exception {sql.insert(namespace + ".signup", vo);}
 	
-	//·Î±×ÀÎ
+	//ë¡œê·¸ì¸
 	@Override
 	public SignUpVO signIn(SignUpVO vo) throws Exception {return sql.selectOne(namespace + ".signin", vo);}
 	
-	//
+	//ì•„ì´ë”” ì°¾ê¸°
+	@Override
+	public SignUpVO findId(SignUpVO vo) throws Exception { return sql.selectOne(namespace + ".findid", vo);}
+	
+	//ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°
+	@Override
+	public SignUpVO findPw(SignUpVO vo) throws Exception { return sql.selectOne(namespace + ".findpw", vo);}
+	
+	//ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° - ì„ì‹œ ë¹„ë°€ë²ˆí˜¸
+	@Override
+	public void updatePw(SignUpVO vo) throws Exception { sql.update(namespace + ".updatepw", vo);}
+	
+	
+
 
 }

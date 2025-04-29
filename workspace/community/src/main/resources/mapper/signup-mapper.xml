@@ -18,4 +18,17 @@
 		users where user_id = #{userId}
 	]]>
   </select>
+  <select id="findid" resultType="com.my.humor.vo.SignUpVO">
+		select * from users
+		where phone_number=#{phoneNumber} and email=#{email}
+  </select>
+  <select id="findpw" resultType="com.my.humor.vo.SignUpVO">
+  	select * from users
+		where user_id=#{userId} and nickname =#{nickname}
+  </select>
+  <update id="updatepw" parameterType="com.my.humor.vo.SignUpVO">
+        UPDATE users
+        SET password = #{password}
+        WHERE user_id = #{userId} AND nickname = #{nickname}
+    </update>
 </mapper>
